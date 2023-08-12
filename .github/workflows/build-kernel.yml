@@ -1,9 +1,5 @@
-name: Build violet 4.14
+name: Build
 on:
-  push:
-    branches: [ main ]
-  watch:
-    types: [started]
   workflow_dispatch:
     inputs:
       release:
