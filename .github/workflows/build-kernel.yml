@@ -334,7 +334,7 @@ jobs:
         fi
         cd ./AnyKernel3/
         zip -r AnyKernel3 . -x ".git*" -x "README.md" -x "*.zip"
-        if [ -f android-kernel/out/arch/${{ env.ARCH }}/boot/${{ env.KERNEL_IMAGE_NAME }} ]; then
+        if [ -f ./AnyKernel3.zip }} ]; then
            echo "AK3_IS_OK=true" >> $GITHUB_ENV
         else
            echo "AnyKernel3 output file is empty or broken."
