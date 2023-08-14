@@ -23,7 +23,7 @@ jobs:
     - name: Check out
       uses: actions/checkout@v3
 
-    - name: Read Building Configuration
+    - name: Read building configuration
       run: |
         CONFIG_ENV=config_violet_4.14.env
         echo "KERNEL_SOURCE=$(cat $CONFIG_ENV | grep -w "KERNEL_SOURCE" | head -n 1 | cut -d "=" -f 2)" >> $GITHUB_ENV
@@ -73,10 +73,10 @@ jobs:
         echo "TC_CUSTOM_CMDS=$(cat $CONFIG_ENV | grep -w "TC_CUSTOM_CMDS" | head -n 1 | cut -d ":" -f 2)" >> $GITHUB_ENV
         echo "EXTRA_CMDS=$(cat $CONFIG_ENV | grep -w "EXTRA_CMDS" | head -n 1 | cut -d ":" -f 2)" >> $GITHUB_ENV
         
-    - name: Set swap space to 10G
+    - name: Set swap space to 8G
       uses: pierotofy/set-swap-space@master
       with:
-        swap-size-gb: 10
+        swap-size-gb: 8
 
     - name: Setup build kernel environment
       run: |
@@ -334,7 +334,7 @@ jobs:
         fi
         cd ./AnyKernel3/
         zip -r AnyKernel3 . -x ".git*" -x "README.md" -x "*.zip"
-        if [ -f ./AnyKernel3.zip }} ]; then
+        if [ -f ./AnyKernel3.zip ]; then
            echo "AK3_IS_OK=true" >> $GITHUB_ENV
         else
            echo "AnyKernel3 output file is empty or broken."
